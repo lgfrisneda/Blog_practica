@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Tag;
+use App\User;
 
 class PageController extends Controller
 {
@@ -16,22 +17,25 @@ class PageController extends Controller
         $posts = Post::orderBy('id', 'DESC')
         ->where('status', 'PUBLISHED')
         ->paginate(3);
+
+        $subtitle = '';
         
-        return view('web.posts', compact('posts'));
+        return view('web.posts', compact('posts', 'subtitle'));
     }
 
     public function category($slug)
     {
         $category = Category::where('slug', $slug)
-                    ->pluck('id')
                     ->first();
                     
-        $posts = Post::where('category_id', $category)
+        $posts = Post::where('category_id', $category->id)
                 ->orderBy('id', 'DESC')
                 ->where('status', 'PUBLISHED')
                 ->paginate(3);
 
-        return view('web.posts', compact('posts'));
+        $subtitle = 'Categoría: '.$category->name;
+
+        return view('web.posts', compact('posts', 'subtitle'));
         
     }
 
@@ -44,8 +48,25 @@ class PageController extends Controller
                 ->where('status', 'PUBLISHED')
                 ->paginate(3);
 
-        return view('web.posts', compact('posts'));
+        $subtitle = 'Etiqueta: ';
+
+        return view('web.posts', compact('posts', 'subtitle'));
         
+    }
+
+    public function autor($slug)
+    {
+        $autor = User::where('slug', $slug)
+                    ->first();
+
+        $posts = Post::where('user_id', $autor->id)
+                    ->orderBy('id', 'DESC')
+                    ->where('status', 'PUBLISHED')
+                    ->paginate(3);
+
+        $subtitle = 'Autor: '.$autor->name;
+
+        return view('web.posts', compact('posts', 'subtitle'));
     }
 
     public function post($slug)

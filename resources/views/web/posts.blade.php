@@ -4,6 +4,7 @@
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
         <h1>Lista de articulos</h1>
+        <h4>{{ $subtitle }}</h4>
         @foreach ($posts as $post)
             <div class="panel panel-default">
                 <div class="panel-heading">

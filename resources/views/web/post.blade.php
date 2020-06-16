@@ -26,6 +26,12 @@
                         {{ $tag->name }}
                     </a>
                 @endforeach
+                <div class="pull-right">
+                    Autor
+                    <a href="{{ route('autor', $post->user->slug) }}">
+                        {{ $post->user->name }}
+                    </a>
+                </div>
             </div>
         </div>
     </div>

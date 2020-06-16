@@ -14,9 +14,11 @@ class UsersTableSeeder extends Seeder
     {
         //
         factory(User::class, 29)->create();
-
-        factory(User::class)->create([
-            'name' => 'Usuario Fijo',
+        
+        $nombre = 'Usuario Fijo';
+        factory(User::class)->create([    
+            'name' => $nombre,
+            'slug' => str_slug($nombre),
             'email' => 'correo@email.com',
             'password' => bcrypt('123')
         ]);
