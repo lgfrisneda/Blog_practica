@@ -41,6 +41,9 @@ class PageController extends Controller
 
     public function tag($slug)
     {               
+        $tag = Tag::where('slug', $slug)
+                ->first();
+
         $posts = Post::whereHas('tags', function($query) use ($slug){
             $query->where('slug', $slug);
         })
@@ -48,7 +51,7 @@ class PageController extends Controller
                 ->where('status', 'PUBLISHED')
                 ->paginate(3);
 
-        $subtitle = 'Etiqueta: ';
+        $subtitle = 'Etiqueta: '.$tag->name;
 
         return view('web.posts', compact('posts', 'subtitle'));
         
