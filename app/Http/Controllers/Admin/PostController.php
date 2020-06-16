@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-    //se puede quitar por el middleware en route
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Display a listing of the resource.
