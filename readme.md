@@ -17,4 +17,5 @@ Modulos desarrollados:
 - Vista (pública) de entradas relacionadas a un autor.
 - Zona de widgets.
 - Panel de aprobación de entradas.
+- Test
 - Otros
