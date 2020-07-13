@@ -7,6 +7,7 @@ Modulos desarrollados:
     - Ver entradas registradas.
     - Ver entradas relacionadas a una categoria.
     - Ver entradas relacionadas a una etiqueta.
+    - Ver entradas relacionadas a un autor.
 - Registro y login al panel administrativo
     - CRUD de etiquetas.
     - CRUD de categorías.
@@ -14,7 +15,6 @@ Modulos desarrollados:
 
 ## TO DO
 - Mejora visual.
-- Vista (pública) de entradas relacionadas a un autor.
 - Zona de widgets.
 - Panel de aprobación de entradas.
 - Test
