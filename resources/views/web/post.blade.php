@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-9">
         <h1>{{ $post->name }}</h1>
 
         <div class="panel panel-default">
@@ -35,5 +35,6 @@
             </div>
         </div>
     </div>
+    @include('web.widgets')
 </div>
 @endsection
