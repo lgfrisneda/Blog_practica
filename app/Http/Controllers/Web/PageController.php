@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\Tag;
 use App\User;
+use App\Widget;
 
 class PageController extends Controller
 {
@@ -18,9 +19,11 @@ class PageController extends Controller
         ->where('status', 'PUBLISHED')
         ->paginate(3);
 
+        $widgets = Widget::orderBy('id', 'ASC')->get();
+
         $subtitle = '';
         
-        return view('web.posts', compact('posts', 'subtitle'));
+        return view('web.posts', compact('posts', 'subtitle', 'widgets'));
     }
 
     public function category($slug)
