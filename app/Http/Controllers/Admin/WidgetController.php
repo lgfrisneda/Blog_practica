@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WidgetStoreRequest;
+use App\Http\Requests\WidgetUpdateRequest;
 use App\Widget;
 use Illuminate\Http\Request;
 
@@ -38,7 +40,7 @@ class WidgetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(WidgetStoreRequest $request)
     {
         //
         $widget = Widget::create($request->all());
@@ -81,7 +83,7 @@ class WidgetController extends Controller
      * @param  \App\Widget  $widget
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(WidgetUpdateRequest $request, $id)
     {
         //
         $widget = Widget::find($id);

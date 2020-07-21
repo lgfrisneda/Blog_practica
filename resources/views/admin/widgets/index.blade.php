@@ -44,6 +44,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $widgets->render() }}
                 </div>
             </div>
         </div>
