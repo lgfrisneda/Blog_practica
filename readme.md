@@ -12,10 +12,10 @@ Modulos desarrollados:
     - CRUD de etiquetas.
     - CRUD de categorías.
     - CRUD de entradas (solo se pueden consultar, editar y eliminar las entradas creadas por el usuario logueado al momento).
+    - CRUD de widgets.
 
 ## TO DO
 - Mejora visual.
-- Zona de widgets.
 - Panel de aprobación de entradas.
 - Test
 - Otros
