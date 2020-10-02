@@ -36,9 +36,11 @@ class PageController extends Controller
                 ->where('status', 'PUBLISHED')
                 ->paginate(3);
 
+        $widgets = Widget::orderBy('id', 'ASC')->get();
+
         $subtitle = 'Categoría: '.$category->name;
 
-        return view('web.posts', compact('posts', 'subtitle'));
+        return view('web.posts', compact('posts', 'subtitle','widgets'));
         
     }
 
@@ -54,9 +56,11 @@ class PageController extends Controller
                 ->where('status', 'PUBLISHED')
                 ->paginate(3);
 
+        $widgets = Widget::orderBy('id', 'ASC')->get();
+
         $subtitle = 'Etiqueta: '.$tag->name;
 
-        return view('web.posts', compact('posts', 'subtitle'));
+        return view('web.posts', compact('posts', 'subtitle','widgets'));
         
     }
 
@@ -70,15 +74,19 @@ class PageController extends Controller
                     ->where('status', 'PUBLISHED')
                     ->paginate(3);
 
+        $widgets = Widget::orderBy('id', 'ASC')->get();
+
         $subtitle = 'Autor: '.$autor->name;
 
-        return view('web.posts', compact('posts', 'subtitle'));
+        return view('web.posts', compact('posts', 'subtitle','widgets'));
     }
 
     public function post($slug)
     {
         $post = Post::where('slug', $slug)->first();
 
-        return view('web.post', compact('post'));
+        $widgets = Widget::orderBy('id', 'ASC')->get();
+
+        return view('web.post', compact('post', 'widgets'));
     }
 }
